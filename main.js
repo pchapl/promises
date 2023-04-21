@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    const load = (name) => fetch(`http://localhost:3000/${name}`).then((res) => res.text());
+    const load = (name) => fetch(`https://cats.nmsc.pchapl.dev/${name}`).then((res) => res.text());
 
     const loadA = () => load('a');
     const loadB = () => load('b');
@@ -15,23 +15,19 @@
     const drawC = (data) => document.getElementsByClassName('container-c')[0].innerHTML = data;
     const drawD = (data) => document.getElementsByClassName('container-d')[0].innerHTML = data;
 
-    // Задача: написать код runTask, который будет загружать данные с сервера функциями loadA-loadD) и отрисовывать их
-    // на странице функциями drawA-drawD. На время загрузки должен отображаться текст "Loading..."
-    // в соответствующем контейнере. После загрузки данных во все контейнеры надо заменить заголовок Loading на "Done"
-    function runTask() {
-    }
-
-    document.getElementsByClassName('btn-reset')[0].addEventListener('click', () => {
+    let reset = () => {
         setTitle('Loading');
         drawA('');
         drawB('');
         drawC('');
         drawD('');
-        loadA().then(console.log);
-        loadB().then(console.log);
-        loadC().then(console.log);
-        loadD().then(console.log);
-
         runTask();
-    });
+    };
+    document.getElementsByClassName('btn-reset')[0].addEventListener('click', reset);
+
+    // Задача: написать код runTask, который будет загружать данные с сервера функциями loadA-loadD) и отрисовывать их
+    // на странице функциями drawA-drawD. На время загрузки должен отображаться текст "Loading..."
+    // в соответствующем контейнере. После загрузки данных во все контейнеры надо заменить заголовок Loading на "Done"
+    function runTask() {
+    }
 })();
