@@ -6,7 +6,7 @@
     const loadA = () => load('a');
     const loadB = () => load('b');
     const loadC = () => load('c');
-    const loadD = () => load('d');
+    const loadD = () => load('фd');
 
     const setTitle = (title) => document.title = title;
 
